@@ -1,10 +1,10 @@
 // https://github.com/nuxt-themes/alpine/blob/main/nuxt.schema.ts
 export default defineAppConfig({
   alpine: {
-    title: 'Alpine',
-    description: 'The minimalist blog theme',
+    title: 'Laís Galvão',
+    description: 'Laís Galvão | 👩🏽‍💻 Desenvolvedora | Educadora Social',
     image: {
-      src: '/social-card-preview.png',
+      src: '/profile-linkedin-pic.jpg',
       alt: 'An image showcasing my project.',
       width: 400,
       height: 300
@@ -37,6 +37,10 @@ export default defineAppConfig({
     },
     form: {
       successMessage: 'Message sent. Thank you!'
+    },
+    backToTop: {
+      text: 'Back to top',
+      icon: 'material-symbols:arrow-upward'
     }
   }
 })
