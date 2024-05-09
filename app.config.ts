@@ -27,12 +27,12 @@ export default defineAppConfig({
       message: 'Me acompanhe nas redes!' // string that will be displayed in the footer (leave empty or delete to disable)
     },
     socials: {
-      twitter: 'nuxtlabs',
-      instagram: 'atinuxt',
+      twitter: 'missguita_777',
+      instagram: 'laisgbueno_7',
       linkedin: {
         icon: 'uil:linkedin',
         label: 'LinkedIn',
-        href: 'https://www.linkedin.com/company/nuxtlabs'
+        href: 'https://www.linkedin.com/in/lais-galvao-bueno/'
       }
     },
     form: {
