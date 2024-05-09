@@ -5,7 +5,7 @@ export default defineAppConfig({
     description: 'Laís Galvão | 👩🏽‍💻 Desenvolvedora | Educadora Social',
     image: {
       src: '/profile-linkedin-pic.jpg',
-      alt: 'An image showcasing my project.',
+      alt: 'Laís Galvão | 👩🏽‍💻 Desenvolvedora | Educadora Social',
       width: 400,
       height: 300
     },
@@ -19,8 +19,8 @@ export default defineAppConfig({
     },
     footer: {
       credits: {
-        enabled: true, // possible value are : true | false
-        repository: 'https://www.github.com/nuxt-themes/alpine' // our github repository
+        enabled: false, // possible value are : true | false
+        // repository: 'https://www.github.com/nuxt-themes/alpine' // our github repository
       },
       navigation: true, // possible value are : true | false
       alignment: 'center', // possible value are : 'none' | 'left' | 'center' | 'right'
