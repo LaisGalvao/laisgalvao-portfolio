@@ -16,14 +16,12 @@
 </template>
 
 <script>
-import ContentComp from '../components/ContentComp.vue';
-import CardComp from '../components/CardComp.vue';
+import ContentComp from '../components/HelloWorld.vue';
 
 export default {
   name: 'HomeView',
   components: {
-    ContentComp,
-    CardComp
+   HelloWorld
   }
 };
 </script>
