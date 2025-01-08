@@ -1,14 +1,19 @@
 <template>
-  <section class="github-projects">
+  <section>
     <h2>Meus Projetos no GitHub</h2>
-    <ul v-if="repos.length">
-      <li v-for="repo in repos" :key="repo.id">
-        <a :href="repo.html_url" target="_blank" rel="noopener noreferrer">
-          {{ repo.name }}
-        </a>
-        <p>{{ repo.description || "Sem descrição." }}</p>
-      </li>
-    </ul>
+    <b-card-group columns v-if="repos.length">
+      <b-card class="github-projects" v-for="repo in repos" :key="repo.id">
+        <template #header>
+          <a :href="repo.html_url" target="_blank" rel="noopener noreferrer">
+            {{ repo.name }}
+          </a>
+        </template>
+        <b-card-text>
+          {{ repo.description || "Sem descrição." }}
+        </b-card-text>
+      </b-card>
+    </b-card-group>
+
     <p v-else>Carregando projetos...</p>
   </section>
 </template>
@@ -42,36 +47,36 @@ export default {
 <style scoped>
 .github-projects {
   padding: 20px;
-  max-width: 800px;
   margin: 20px auto;
-  background: #1e1e2f; /* Preto com tom azulado */
-  border: 1px solid #000080; /* Azul escuro */
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background: #1e1e2f;
+  /* Preto com tom azulado */
+  border-radius: 12px; /* Aumentei o border-radius para um arredondamento mais suave */
+  box-shadow: 0 6px 12px rgba(40, 69, 19, 0.258), 0 0 25px rgba(75, 0, 130, 0.3); /* Sombra suave e um efeito de brilho verde */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.github-projects ul {
-  list-style: none;
-  padding: 0;
-}
-
-.github-projects li {
-  margin-bottom: 15px;
+.github-projects:hover {
+  transform: translateY(-5px); /* Efeito de elevação */
+  box-shadow: 0 6px 12px rgba(62, 107, 30, 0.564), 0 0 25px rgba(75, 0, 130, 0.3); /* Aumenta a sombra e o brilho ao passar o mouse */
 }
 
 .github-projects a {
-  color: #008000; /* Verde */
+  color: #fff; /* Cor branca original */
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s ease, background 0.3s ease; /* Transição suave para a cor do texto */
 }
 
 .github-projects a:hover {
+  color: transparent; /* Torna o texto transparente para aplicar o gradiente */
+  background: linear-gradient(45deg, #00FF00, #8A2BE2); /* Gradiente de verde claro para roxo claro */
+  -webkit-background-clip: text; /* Faz o gradiente se aplicar no texto */
+  background-clip: text; /* Para navegadores que suportam */
   text-decoration: underline;
-  color: #4b0082; /* Roxo */
 }
 
 .github-projects p {
-  color: #c0c0c0; /* Cinza claro para texto */
+  color: #c0c0c0; /* Cinza claro para o texto */
 }
 
 .github-projects h2 {
@@ -80,4 +85,5 @@ export default {
   border-bottom: 2px solid #008000; /* Verde */
   padding-bottom: 10px;
 }
+
 </style>

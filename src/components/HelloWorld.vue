@@ -7,7 +7,7 @@
     </header>
 
     <!-- About Section -->
-    <section class="about">
+    <section class="sections">
       <h2>Sobre Mim</h2>
       <p>
         Sou um desenvolvedor com experiência em Go, TypeScript, Python, PHP e Vue 3. Além disso, participo de eventos de
@@ -17,78 +17,23 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="skills">
+    <section class="sections">
       <h2>Habilidades</h2>
-      <h3>Desenvolvimento de Software</h3>
-      <ul>
-        <li><strong>Back-End</strong>: Laravel (PHP), NestJS (TypeScript), Prisma ORM, Supabase, Node.js</li>
-        <li><strong>Front-End</strong>: Vue.js, Vite, Criação de menus responsivos (menu hambúrguer)</li>
-        <li><strong>Testes</strong>: Jest (NestJS), PHPUnit (Laravel), Testes com dados mockados e validações
-          específicas (aceite de termos)</li>
-        <li><strong>Scripts e Automação</strong>: Shell Scripts para ambiente de desenvolvimento, Automação com Selenium
-          (Chrome for Testing), Scripts personalizados (organização de fotos, desinscrição de canais no YouTube)</li>
-        <li><strong>Banco de Dados</strong>: MySQL, Bancos não relacionais (Supabase), Ferramentas: DBeaver</li>
-      </ul>
-
-      <h3>DevOps e Infraestrutura</h3>
-      <ul>
-        <li>Configuração e uso de Docker (Laravel + Node.js)</li>
-        <li>Integração de upload com AWS S3 (buckets)</li>
-        <li>Configuração de múltiplas versões de Node.js, PHP e MySQL</li>
-      </ul>
-
-      <h3>Versionamento e Git</h3>
-      <ul>
-        <li>Documentação e ensino sobre Git (`git stash`, `git cherry-pick`)</li>
-        <li>Experiência com VSCode e CLI</li>
-        <li>Estruturação e refatoração de repositórios</li>
-      </ul>
-
-      <h3>Linguagens de Programação</h3>
-      <ul>
-        <li><strong>Back-End</strong>: PHP, TypeScript, Python, Go</li>
-        <li><strong>Front-End</strong>: JavaScript, HTML, CSS</li>
-        <li><strong>Scripting</strong>: Shell Script, Automação em Python</li>
-      </ul>
-
-      <h3>Web Scraping e APIs</h3>
-      <ul>
-        <li>Criação de APIs (ex.: API de filmes sáficos)</li>
-        <li>Web scraping integrado com banco de dados</li>
-      </ul>
-
-      <h3>Ensino e Criação de Conteúdo</h3>
-      <ul>
-        <li>Aulas de programação voluntárias</li>
-        <li>Criação de tutoriais técnicos</li>
-        <li>Publicação de conteúdo no Medium, LinkedIn e lives</li>
-      </ul>
-
-      <h3>Habilidades Organizacionais e Projetos</h3>
-      <ul>
-        <li>Planejamento estruturado de tarefas</li>
-        <li>Gestão de projetos técnicos e publicação</li>
-        <li>Desenvolvimento de plataformas integradas (ex.: Smart Fidelidade)</li>
-      </ul>
-
-      <h3>Ferramentas e Ambientes de Desenvolvimento</h3>
-      <ul>
-        <li>Windows 11 com WSL</li>
-        <li>VSCode</li>
-        <li>DBeaver para bancos de dados</li>
-        <li>Integração de Python 3 e Go no ambiente de trabalho</li>
-      </ul>
-
+      <div v-for="(skillCategory, index) in skills" :key="index">
+        <h3>{{ skillCategory.title }}</h3>
+        <ul>
+          <li v-for="(skill, idx) in skillCategory.items" :key="idx">{{ skill }}</li>
+        </ul>
+      </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="projects">
-      <h2>Projetos Recentes</h2>
+    <section class="sections">
       <ContentComp />
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
+    <section class="sections contact">
       <h2>Contato</h2>
       <form @submit.prevent="sendMessage">
         <input type="text" v-model="form.name" placeholder="Seu Nome" required />
@@ -116,7 +61,75 @@ export default {
         name: '',
         email: '',
         message: ''
-      }
+      },
+      skills: [
+        {
+          title: 'Desenvolvimento de Software',
+          items: [
+            'Back-End: Laravel (PHP), NestJS (TypeScript), Prisma ORM, Supabase, Node.js',
+            'Front-End: Vue.js, Vite, Criação de menus responsivos (menu hambúrguer)',
+            'Testes: Jest (NestJS), PHPUnit (Laravel), Testes com dados mockados e validações específicas (aceite de termos)',
+            'Scripts e Automação: Shell Scripts para ambiente de desenvolvimento, Automação com Selenium (Chrome for Testing), Scripts personalizados (organização de fotos, desinscrição de canais no YouTube)',
+            'Banco de Dados: MySQL, Bancos não relacionais (Supabase), Ferramentas: DBeaver'
+          ]
+        },
+        {
+          title: 'DevOps e Infraestrutura',
+          items: [
+            'Configuração e uso de Docker (Laravel + Node.js)',
+            'Integração de upload com AWS S3 (buckets)',
+            'Configuração de múltiplas versões de Node.js, PHP e MySQL'
+          ]
+        },
+        {
+          title: 'Versionamento e Git',
+          items: [
+            'Documentação e ensino sobre Git (`git stash`, `git cherry-pick`)',
+            'Experiência com VSCode e CLI',
+            'Estruturação e refatoração de repositórios'
+          ]
+        },
+        {
+          title: 'Linguagens de Programação',
+          items: [
+            'Back-End: PHP, TypeScript, Python, Go',
+            'Front-End: JavaScript, HTML, CSS',
+            'Scripting: Shell Script, Automação em Python'
+          ]
+        },
+        {
+          title: 'Web Scraping e APIs',
+          items: [
+            'Criação de APIs (ex.: API de filmes sáficos)',
+            'Web scraping integrado com banco de dados'
+          ]
+        },
+        {
+          title: 'Ensino e Criação de Conteúdo',
+          items: [
+            'Aulas de programação voluntárias',
+            'Criação de tutoriais técnicos',
+            'Publicação de conteúdo no Medium, LinkedIn e lives'
+          ]
+        },
+        {
+          title: 'Habilidades Organizacionais e Projetos',
+          items: [
+            'Planejamento estruturado de tarefas',
+            'Gestão de projetos técnicos e publicação',
+            'Desenvolvimento de plataformas integradas (ex.: Smart Fidelidade)'
+          ]
+        },
+        {
+          title: 'Ferramentas e Ambientes de Desenvolvimento',
+          items: [
+            'Windows 11 com WSL',
+            'VSCode',
+            'DBeaver para bancos de dados',
+            'Integração de Python 3 e Go no ambiente de trabalho'
+          ]
+        }
+      ]
     };
   },
   methods: {
@@ -141,7 +154,7 @@ export default {
 }
 
 .header {
-  background: linear-gradient(135deg, #1e5128, #4b0082);
+  background: linear-gradient(135deg, #00FF00, #8A2BE2);
   color: white;
   padding: 20px;
   text-align: center;
@@ -149,34 +162,17 @@ export default {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.about,
-.skills,
-.projects,
-.contact {
+.sections {
   padding: 20px;
-  max-width: 800px;
+  max-width: 90vw;
   margin: 20px auto;
-  background: #1e1e2f;
-  border: 1px solid #1e3a8a;
   border-radius: 10px;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 12px rgba(38, 51, 14, 0.368);
 }
 
-.skills ul {
-  list-style: circle;
-  padding: 0;
-}
-
-.skills li {
-  margin: 5px 0;
-}
-
-.project {
-  margin-bottom: 20px;
-}
-
-.project h3 {
-  color: #34d399;
+.sections:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(62, 107, 30, 0.564), 0 0 25px rgba(75, 0, 130, 0.3);
 }
 
 .contact form {
@@ -202,7 +198,7 @@ export default {
 }
 
 .contact button {
-  background: linear-gradient(135deg, #34d399, #4b0082);
+  background: linear-gradient(135deg, #00FF00, #8A2BE2);
   color: white;
   border: none;
   cursor: pointer;
@@ -210,27 +206,19 @@ export default {
 }
 
 .contact button:hover {
-  background: linear-gradient(135deg, #4b0082, #34d399);
+  background: linear-gradient(135deg, #8A2BE2, #00FF00);
   transform: translateY(-2px);
 }
 
 .footer {
   text-align: center;
-  background: #001f3f;
+  background: linear-gradient(135deg, #8A2BE2, #00FF00);
   color: white;
   padding: 10px 0;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
-
-  .about,
-  .skills,
-  .projects,
-  .contact {
-    padding: 15px;
-  }
-
   .header h1 {
     font-size: 1.8em;
   }
