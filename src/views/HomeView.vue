@@ -1,7 +1,5 @@
 <template>
-  <div class="home">
     <HelloWorld />
-  </div>
 </template>
 
 <script>
@@ -16,7 +14,4 @@ export default {
 </script>
 
 <style scoped>
-.home {
-  padding: 20px;
-}
 </style>

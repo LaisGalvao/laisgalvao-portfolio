@@ -1,9 +1,7 @@
 <template>
-  <div id="app">
-    <div class="container mt-5">
+  <div>
       <router-view></router-view>
     </div>
-  </div>
 </template>
 
 <script>
@@ -15,4 +13,5 @@ export default {
 
 <style>
 /* Estilos globais */
+
 </style>
